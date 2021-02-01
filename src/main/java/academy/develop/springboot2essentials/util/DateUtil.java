@@ -1,4 +1,4 @@
-package academy.devdojo.springboot2.util;
+package academy.develop.springboot2essentials.util;
 
 import org.springframework.stereotype.Component;
 
