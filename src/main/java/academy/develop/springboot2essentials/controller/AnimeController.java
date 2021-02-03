@@ -26,7 +26,6 @@ public class AnimeController {
     @GetMapping
     public ResponseEntity<List<Anime>> list() {
         log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
-        //return new ResponseEntity<>(animeService.listAll(),HttpStatus.OK);
         return ResponseEntity.ok(animeService.listAll());
     }
 
@@ -35,7 +34,12 @@ public class AnimeController {
         return ResponseEntity.ok(animeService.findById(id));
     }
 
-    //auto mapeamento pelo jackson
+    @GetMapping(path = "/find")
+    public ResponseEntity<List<Anime>> findByName(@RequestParam(name = "name",required = false) String name) {
+        return ResponseEntity.ok(animeService.findByName(name));
+    }
+
+    //auto mapeamento JSON pelo jackson
     @PostMapping
     public ResponseEntity<Anime> save(@RequestBody AnimePostRequestBody animePostRequestBody){
         return new ResponseEntity<>(animeService.save(animePostRequestBody), HttpStatus.CREATED);
