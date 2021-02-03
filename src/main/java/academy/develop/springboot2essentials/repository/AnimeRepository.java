@@ -1,9 +1,8 @@
 package academy.develop.springboot2essentials.repository;
 
 import academy.develop.springboot2essentials.domain.Anime;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+public interface AnimeRepository extends JpaRepository<Anime,Long> {
 
-public interface AnimeRepository {
-    List<Anime> listAll();
 }
